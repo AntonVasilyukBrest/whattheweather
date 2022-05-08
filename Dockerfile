@@ -39,7 +39,9 @@ COPY . /var/www/html
 # Assign permissions of the working directory to the www-data user
 RUN chown -R www-data:www-data \
  /var/www/html/storage \
- /var/www/html/bootstrap/cache
+ /var/www/html/bootstrap/cache \
+&& chmod -R 0777 \
+ /var/www/html/storage
 
 # Expose port 9000 and start php-fpm server (for FastCGI Process Manager)
 EXPOSE 9000
